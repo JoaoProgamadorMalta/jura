@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "766666935839",
+    "project_id": "jurapp-1f662",
+    "storage_bucket": "jurapp-1f662.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766666935839:android:bdf9b1cc2d1ea9af120f2a",
+        "android_client_info": {
+          "package_name": "com.example.jura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD32tQI7TS-ZerdD2qD9z0o9uGGde2mPT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
