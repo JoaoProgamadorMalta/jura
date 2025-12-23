@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:jura/utils/orientation_helper.dart';
 import 'package:jura/views/login_page.dart';
 import 'package:jura/views/signup_page.dart';
 
@@ -22,6 +24,18 @@ class _InitialPageState extends State<InitialPage> {
     {3: 'assets/images/img3.png'},
   ];
 
+  @override
+  void initState(){
+    super.initState();
+    OrientationHelper.lockPortrait();
+  }
+
+  @override
+  void dispose(){
+    OrientationHelper.unlockAllOrientations();
+    super.dispose();
+  }
+    
   Route createRoute(Widget page){
     return PageRouteBuilder(
       transitionDuration: const Duration(milliseconds: 1000),
@@ -155,13 +169,13 @@ class _InitialPageState extends State<InitialPage> {
                   }).toList(),
             ),
             const Text(
-              'Bem vindo ao JurApp:',
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              'Bem vindo ao JurApp', 
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 30,),
             ElevatedButton(
               style: ButtonStyle(
-                fixedSize: WidgetStateProperty.all(Size(110, 40)),
+                fixedSize: WidgetStateProperty.all(Size(115, 40)),
                 backgroundColor: WidgetStateProperty.all(
                   Color.fromARGB(255, 197, 153, 32),
                 ),
@@ -174,7 +188,7 @@ class _InitialPageState extends State<InitialPage> {
             SizedBox(height: 20,),
             ElevatedButton(
               style: ButtonStyle(
-                fixedSize: WidgetStateProperty.all(Size(110, 40)),
+                fixedSize: WidgetStateProperty.all(Size(115, 40)),
                 backgroundColor: WidgetStateProperty.all(
                   Color.fromARGB(255, 197, 153, 32),
                 ),

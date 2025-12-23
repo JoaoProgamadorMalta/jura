@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jura/controllers/services/auth_service.dart';
+import 'package:jura/utils/orientation_helper.dart';
 import 'package:jura/views/home_page.dart';
 import 'package:jura/views/initial_page.dart';
 import 'package:jura/views/role_based_page.dart.dart';
@@ -25,6 +26,12 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _isLoading = false;
   bool? _isSuccess; // null = nada, true = sucesso, false = erro
 
+  @override
+  void initState() {
+    super.initState();
+    OrientationHelper.unlockAllOrientations();
+  }
+  
   Route createRoute(Widget page) {
     return PageRouteBuilder(
       transitionDuration: const Duration(milliseconds: 1000),
@@ -115,22 +122,23 @@ class _SignUpPageState extends State<SignUpPage> {
                 : SingleChildScrollView(
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(left: 20, top: 60),
-                              child: IconButton(
-                                onPressed: () {
-                                  Navigator.of(context).pushReplacement(
-                                    createRoute(const InitialPage()),
-                                  );
-                                },
-                                icon: const Icon(Icons.arrow_back,
-                                    color: Colors.white),
-                              ),
+                        Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 60),
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context).pushReplacement(
+                                createRoute(const InitialPage()),
+                              );
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
                             ),
-                          ],
-                        ),
+                          ),
+                      ),
+                    ),
                         Container(
                           margin: const EdgeInsets.only(top: 20),
                           width: widthContainer.toDouble(),
